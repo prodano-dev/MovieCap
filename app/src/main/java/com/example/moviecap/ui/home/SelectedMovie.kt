@@ -41,7 +41,6 @@ class SelectedMovie : Fragment() {
         tvMovieTitle.text = movie.title
         tvReleaseDate.text = movie.release_date
         tvMovieOverview.text = movie.overview
-        tvRate.text = movie.vote_average.toString()
         context?.let { Glide.with(it).load(movie.getBackdropPath()).into(ivMovieBack) }
         context?.let { Glide.with(it).load(movie.getPosterPath()).into(ivMoviePoster) }
 

@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 const val BUNDLE_MOVIE_KEY = "bundle_movie_key"
 const val REQ_MOVIE_KEY = "req_movie_key"
 
-class HomeFragment : Fragment() {
+class MoviesFragment : Fragment() {
 
     private val upcomingMovies = arrayListOf<MovieDB>()
     private val upcomingMoviesAdapter = MovieAdapter(upcomingMovies) { onMovieClick(it)}

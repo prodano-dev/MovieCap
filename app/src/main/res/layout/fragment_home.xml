@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.MoviesFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -87,90 +87,10 @@
 
             </LinearLayout>
 
+
+
         </LinearLayout>
 
-
-
     </ScrollView>
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/lyUpcoming"-->
-<!--            android:layout_width="413dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_marginLeft="15dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent">-->
-
-<!--            -->
-<!--        </LinearLayout>-->
-
-<!--        <Space-->
-<!--            android:id="@+id/upcomingSpace"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="30dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/lyUpcoming" />-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/lyNowPlaying"-->
-<!--            android:layout_width="413dp"-->
-<!--            android:layout_marginLeft="15dp"-->
-<!--            android:layout_height="214dp"-->
-<!--            android:orientation="vertical"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/upcomingSpace">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tvNowPlaying"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="43dp"-->
-<!--                android:text="Now Playing"-->
-<!--                android:textColor="#000000"-->
-<!--                android:textSize="24sp"-->
-<!--                android:textStyle="bold" />-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/rvNowPlaying"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--        </LinearLayout>-->
-
-<!--        <Space-->
-<!--            android:id="@+id/nowplayingSpace"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="30dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/lyNowPlaying" />-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/lyTopRated"-->
-<!--            android:layout_width="413dp"-->
-<!--            android:layout_height="214dp"-->
-<!--            android:layout_marginLeft="15dp"-->
-<!--            android:orientation="vertical"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/nowplayingSpace">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tvTopRated"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="43dp"-->
-<!--                android:text="Top rated"-->
-<!--                android:textColor="#000000"-->
-<!--                android:textSize="24sp"-->
-<!--                android:textStyle="bold" />-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/rvTopRated"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--        </LinearLayout>-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
