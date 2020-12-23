@@ -24,6 +24,10 @@ class MovieDBRepository {
     val topRatedMovies: LiveData<List<MovieDB>>
         get() = _topRatedMovies
 
+    private val _searchedMovies: MutableLiveData<List<MovieDB>> = MutableLiveData()
+    val searchedMovies: LiveData<List<MovieDB>>
+        get() = _searchedMovies
+
     suspend fun getUpcomingMovies() {
 
         try {
@@ -63,6 +67,19 @@ class MovieDBRepository {
 
         } catch (error: Throwable) {
             throw MovieFetchError("Cant fetch now playing movies", error)
+        }
+    }
+
+    suspend fun searchMoviesWithQuery(query: String) {
+
+        try {
+            val result: ApiResponse.Result = withTimeout(5000) {
+                movieDBApiService.getMoviesWithQuery(query)
+            }
+
+            _searchedMovies.value = result.results
+        } catch (error: Throwable) {
+            throw MovieFetchError("Couldnt find the movie you looking for", error)
         }
     }
 
