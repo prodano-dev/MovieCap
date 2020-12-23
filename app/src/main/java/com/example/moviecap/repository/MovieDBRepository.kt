@@ -1,11 +1,11 @@
-package com.example.moviecap.Repository
+package com.example.moviecap.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.moviecap.API.MovieDBApi
-import com.example.moviecap.API.MovieDBApiService
-import com.example.moviecap.Model.ApiResponse
-import com.example.moviecap.Model.MovieDB
+import com.example.moviecap.api.MovieDBApi
+import com.example.moviecap.api.MovieDBApiService
+import com.example.moviecap.model.ApiResponse
+import com.example.moviecap.model.MovieDB
 import kotlinx.coroutines.withTimeout
 
 class MovieDBRepository {

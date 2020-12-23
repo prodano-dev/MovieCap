@@ -1,4 +1,4 @@
-package com.example.moviecap.API
+package com.example.moviecap.api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

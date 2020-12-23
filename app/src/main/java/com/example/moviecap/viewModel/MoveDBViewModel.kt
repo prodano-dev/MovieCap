@@ -1,10 +1,10 @@
-package com.example.moviecap.ViewModel
+package com.example.moviecap.viewModel
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.moviecap.Repository.MovieDBRepository
+import com.example.moviecap.repository.MovieDBRepository
 import kotlinx.coroutines.launch
 
 class MoveDBViewModel(application: Application): AndroidViewModel(application) {

@@ -1,25 +1,21 @@
 package com.example.moviecap.ui.dashboard
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.moviecap.Model.MovieDB
+import com.example.moviecap.model.MovieDB
 import com.example.moviecap.R
-import com.example.moviecap.ViewModel.MoveDBViewModel
+import com.example.moviecap.viewModel.MoveDBViewModel
 import com.example.moviecap.ui.home.BUNDLE_MOVIE_KEY
 import com.example.moviecap.ui.home.MovieAdapter
 import com.example.moviecap.ui.home.REQ_MOVIE_KEY

@@ -4,20 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.moviecap.Model.MovieDB
+import com.example.moviecap.model.MovieDB
 import com.example.moviecap.R
-import com.example.moviecap.ViewModel.MoveDBViewModel
+import com.example.moviecap.viewModel.MoveDBViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 const val BUNDLE_MOVIE_KEY = "bundle_movie_key"

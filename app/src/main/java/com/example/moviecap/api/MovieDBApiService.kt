@@ -1,6 +1,6 @@
-package com.example.moviecap.API
+package com.example.moviecap.api
 
-import com.example.moviecap.Model.ApiResponse
+import com.example.moviecap.model.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

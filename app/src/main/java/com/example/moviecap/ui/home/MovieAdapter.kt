@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.moviecap.API.MovieDBApi
-import com.example.moviecap.Model.MovieDB
+import com.example.moviecap.model.MovieDB
 import com.example.moviecap.R
 import kotlinx.android.synthetic.main.item_movies.view.*
 
