@@ -7,90 +7,170 @@
     android:fitsSystemWindows="true"
     tools:context=".ui.home.HomeFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
         <LinearLayout
-            android:id="@+id/lyUpcoming"
-            android:layout_width="413dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            >
 
-            <TextView
-                android:id="@+id/tvUpcoming"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:text="Upcoming"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/tvUpcoming"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:text="Upcoming"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvUpcoming"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvUpcoming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/tvNowPlaying"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:text="Now Playing"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNowPlaying"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/tvTopRated"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:text="Top rated"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTopRated"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
-        <Space
-            android:id="@+id/upcomingSpace"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyUpcoming" />
 
-        <LinearLayout
-            android:id="@+id/lyNowPlaying"
-            android:layout_width="413dp"
-            android:layout_height="214dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/upcomingSpace">
 
-            <TextView
-                android:id="@+id/tvNowPlaying"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:text="Now Playing"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+    </ScrollView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvNowPlaying"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:id="@+id/lyUpcoming"-->
+<!--            android:layout_width="413dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
 
-        <Space
-            android:id="@+id/nowplayingSpace"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyNowPlaying" />
+<!--            -->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:id="@+id/lyTopRated"
-            android:layout_width="413dp"
-            android:layout_height="214dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nowplayingSpace">
+<!--        <Space-->
+<!--            android:id="@+id/upcomingSpace"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="30dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/lyUpcoming" />-->
 
-            <TextView
-                android:id="@+id/tvTopRated"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:text="Top rated"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+<!--        <LinearLayout-->
+<!--            android:id="@+id/lyNowPlaying"-->
+<!--            android:layout_width="413dp"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:layout_height="214dp"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/upcomingSpace">-->
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTopRated"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/tvNowPlaying"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="43dp"-->
+<!--                android:text="Now Playing"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="24sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rvNowPlaying"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </LinearLayout>-->
+
+<!--        <Space-->
+<!--            android:id="@+id/nowplayingSpace"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="30dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/lyNowPlaying" />-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/lyTopRated"-->
+<!--            android:layout_width="413dp"-->
+<!--            android:layout_height="214dp"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/nowplayingSpace">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvTopRated"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="43dp"-->
+<!--                android:text="Top rated"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="24sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rvTopRated"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </LinearLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
