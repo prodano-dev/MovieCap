@@ -29,7 +29,6 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
     }
 
     fun isInWatchList() :Boolean {
-
         for (movie in savedMoviesArray) {
             if (movie.movieId == selectedMovie!!.movieId) {
                 return true
@@ -38,10 +37,24 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
         return false
     }
 
+    fun hasBeenRated() : Boolean {
+
+        return selectedMovie!!.ratings != null
+    }
+
     fun setDatabaseIdForMovie() {
         for (movie in savedMoviesArray) {
             if (movie.movieId == selectedMovie!!.movieId) {
                selectedMovie!!.id = movie.id
+                selectedMovie!!.ratings = movie.ratings
+            }
+        }
+    }
+
+    fun changeiests(rate: Double) {
+        for (movie in savedMoviesArray) {
+            if (movie.movieId == selectedMovie!!.movieId) {
+                 movie.ratings = rate
             }
         }
     }
@@ -50,6 +63,16 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
         viewModelScope.launch {
             try {
                 savedMovieRepository.deleteAll()
+            } catch (error: SavedMovieRepository.SaveMovieFetchError) {
+                Log.e("Remove", error.cause.toString())
+            }
+        }
+    }
+
+    fun updateMovie(movie: SavedMovie) {
+        viewModelScope.launch {
+            try {
+                savedMovieRepository.updateMovie(movie)
             } catch (error: SavedMovieRepository.SaveMovieFetchError) {
                 Log.e("Remove", error.cause.toString())
             }

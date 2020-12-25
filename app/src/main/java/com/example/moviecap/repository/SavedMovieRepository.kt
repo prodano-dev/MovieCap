@@ -25,8 +25,12 @@ class SavedMovieRepository(context: Context) {
         return movieDao.getAllSavedMovies() ?: MutableLiveData(emptyList())
     }
 
-    suspend fun addMovie(movie: SavedMovie){
+    fun addMovie(movie: SavedMovie){
         movieDao.addMovieToList(movie)
+    }
+
+    suspend fun updateMovie(movie: SavedMovie) {
+        movieDao.updateMovie(movie)
     }
 
     suspend fun deleteMovie(movie: SavedMovie) {

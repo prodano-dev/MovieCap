@@ -9,24 +9,26 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "savedMovieTable")
-data class SavedMovie (
+data class SavedMovie(
 
-    @ColumnInfo(name ="title")
-    var title: String,
-    @ColumnInfo(name = "backdrop_path")
-    var backdrop_path: String,
-    @ColumnInfo(name ="overview")
-    var overview: String,
-    @ColumnInfo(name ="poster_path")
-    var poster_path: String,
-    @ColumnInfo(name ="vote_average")
-    var vote_average: Double,
-    @ColumnInfo(name ="movieId")
-    var movieId: Int,
-    @ColumnInfo(name= "rated")
-    var rated: Boolean = false,
-    @ColumnInfo(name = "watched")
-    var watched: Boolean = false,
+        @ColumnInfo(name ="title")
+        var title: String,
+        @ColumnInfo(name = "backdrop_path")
+        var backdrop_path: String,
+        @ColumnInfo(name ="overview")
+        var overview: String,
+        @ColumnInfo(name ="poster_path")
+        var poster_path: String,
+        @ColumnInfo(name ="vote_average")
+        var vote_average: Double,
+        @ColumnInfo(name ="movieId")
+        var movieId: Int,
+        @ColumnInfo(name= "ratings")
+        var ratings: Double? = null,
+        @ColumnInfo(name = "review")
+        var review: String? = null,
+        @ColumnInfo(name = "seen")
+        var seen: Boolean = false,
 
 
     @PrimaryKey(autoGenerate = true)

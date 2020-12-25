@@ -1,11 +1,16 @@
 package com.example.moviecap.ui.home
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.RatingBar
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -15,6 +20,8 @@ import com.example.moviecap.R
 import com.example.moviecap.model.SavedMovie
 import com.example.moviecap.viewModel.SelectedMovieViewModel
 import kotlinx.android.synthetic.main.fragment_movie.*
+import kotlinx.android.synthetic.main.fragment_rating_dialog.*
+import kotlinx.android.synthetic.main.fragment_rating_dialog.view.*
 
 
 /**
@@ -52,11 +59,17 @@ class SelectedMovie : Fragment() {
     private fun updateUI() {
 
         if (saveViewModel.isInWatchList()) {
+            saveViewModel.setDatabaseIdForMovie()
             addToWatchListButton.text = "Remove from list"
         } else {
             addToWatchListButton.text = "Add to watchlist"
         }
 
+        if (saveViewModel.hasBeenRated()) {
+            rateButton.text = saveViewModel.selectedMovie!!.ratings.toString()
+        }
+
+        Log.e("again", saveViewModel.selectedMovie!!.ratings.toString())
     }
     private fun observeMovies() {
 
@@ -69,7 +82,32 @@ class SelectedMovie : Fragment() {
     }
 
     private fun  didTappedRateButton() {
-            saveViewModel.remall()
+
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(saveViewModel.selectedMovie!!.title)
+        val dialogLayout = layoutInflater.inflate(R.layout.fragment_rating_dialog, null)
+        val thougs = dialogLayout.findViewById<EditText>(R.id.txt_amount)
+        val stars = dialogLayout.findViewById<RatingBar>(R.id.ratingBar)
+
+
+        builder.setView(dialogLayout)
+
+        builder.setPositiveButton("RATE") { _: DialogInterface, _: Int ->
+
+            saveViewModel.selectedMovie!!.ratings = stars.rating.toDouble()
+            saveViewModel.selectedMovie!!.review = thougs.text.toString()
+            if (saveViewModel.isInWatchList()) {
+                saveViewModel.changeiests(stars.rating.toDouble())
+                saveViewModel.setDatabaseIdForMovie()
+                saveViewModel.updateMovie(saveViewModel.selectedMovie!!)
+                Log.e("true", stars.rating.toString())
+            } else {
+                Log.e("false", saveViewModel.selectedMovie!!.id.toString())
+                saveViewModel.addMovieToList(saveViewModel.selectedMovie!!)
+            }
+
+        }
+        builder.show()
     }
 
 
