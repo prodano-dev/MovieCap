@@ -1,10 +1,7 @@
 package com.example.moviecap.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.moviecap.model.SavedMovie
 
 @Dao
@@ -18,5 +15,11 @@ interface MovieDao {
 
     @Update
     fun updateMovie(movie: SavedMovie)
+
+    @Delete
+    suspend fun removeFromList(movie: SavedMovie)
+
+    @Query("DELETE FROM savedMovieTable")
+    fun deleteAll()
 
 }

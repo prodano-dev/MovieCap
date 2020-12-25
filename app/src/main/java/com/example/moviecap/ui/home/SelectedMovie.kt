@@ -45,19 +45,42 @@ class SelectedMovie : Fragment() {
         }
 
         observeFragmentResult()
+        observeMovies()
+
+    }
+
+    private fun updateUI() {
+
+        if (saveViewModel.isInWatchList()) {
+            addToWatchListButton.text = "Remove from list"
+        } else {
+            addToWatchListButton.text = "Add to watchlist"
+        }
+
+    }
+    private fun observeMovies() {
+
+        saveViewModel.savedMovies.observe(viewLifecycleOwner, Observer {
+            saveViewModel.savedMoviesArray.clear()
+            saveViewModel.savedMoviesArray.addAll(it)
+            updateUI()
+        })
+
     }
 
     private fun  didTappedRateButton() {
-
-        saveViewModel.savedMovies.observe(viewLifecycleOwner, Observer {
-            Log.e("savedmovie title", it[0].title)
-        })
+            saveViewModel.remall()
     }
 
 
     private fun didTappedAddToWatchlist() {
 
-        saveViewModel.addMovieToList(saveViewModel.selectedMovie!!)
+        if (addToWatchListButton.text == "Remove from list") {
+            saveViewModel.setDatabaseIdForMovie()
+            saveViewModel.removieMovieFromList(saveViewModel.selectedMovie!!)
+        } else {
+            saveViewModel.addMovieToList(saveViewModel.selectedMovie!!)
+        }
 
     }
 
@@ -85,6 +108,5 @@ class SelectedMovie : Fragment() {
         tvMovieOverview.text = movie.overview
         context?.let { Glide.with(it).load(movie.getBackdropPath()).into(ivMovieBack) }
         context?.let { Glide.with(it).load(movie.getPosterPath()).into(ivMoviePoster) }
-
     }
 }
