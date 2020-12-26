@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_search_movies"
-        android:name="com.example.moviecap.ui.dashboard.SearchMovieFragment"
+        android:name="com.example.moviecap.ui.search.SearchMovieFragment"
         android:label="Search"
         tools:layout="@layout/fragment_dashboard" >
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.moviecap.ui.notifications.NotificationsFragment"
+        android:name="com.example.moviecap.ui.myList.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment

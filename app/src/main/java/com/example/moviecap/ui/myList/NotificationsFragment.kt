@@ -1,4 +1,4 @@
-package com.example.moviecap.ui.notifications
+package com.example.moviecap.ui.myList
 
 import android.os.Bundle
 import android.view.LayoutInflater

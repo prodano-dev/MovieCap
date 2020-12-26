@@ -1,4 +1,4 @@
-package com.example.moviecap.ui.dashboard
+package com.example.moviecap.ui.search
 
 import android.Manifest
 import android.os.Bundle
@@ -9,7 +9,6 @@ import android.widget.SearchView
 import androidx.camera.core.ImageCapture
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.Observer
