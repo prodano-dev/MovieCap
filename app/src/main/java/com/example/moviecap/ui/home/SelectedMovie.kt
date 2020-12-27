@@ -97,12 +97,10 @@ class SelectedMovie : Fragment() {
             saveViewModel.selectedMovie!!.ratings = stars.rating.toDouble()
             saveViewModel.selectedMovie!!.review = thougs.text.toString()
             if (saveViewModel.isInWatchList()) {
-                saveViewModel.changeiests(stars.rating.toDouble())
+                saveViewModel.changeRatings(stars.rating.toDouble())
                 saveViewModel.setDatabaseIdForMovie()
                 saveViewModel.updateMovie(saveViewModel.selectedMovie!!)
-                Log.e("true", stars.rating.toString())
             } else {
-                Log.e("false", saveViewModel.selectedMovie!!.id.toString())
                 saveViewModel.addMovieToList(saveViewModel.selectedMovie!!)
             }
 

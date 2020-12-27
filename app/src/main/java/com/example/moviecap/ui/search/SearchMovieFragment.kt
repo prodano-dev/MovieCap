@@ -22,6 +22,7 @@ import com.example.moviecap.ui.home.BUNDLE_MOVIE_KEY
 import com.example.moviecap.ui.home.MovieAdapter
 import com.example.moviecap.ui.home.REQ_MOVIE_KEY
 import com.example.moviecap.viewModel.MoveDBViewModel
+import kotlinx.android.synthetic.main.fragment_add_movie.*
 import kotlinx.android.synthetic.main.fragment_search_movie.*
 import java.io.File
 import java.util.concurrent.ExecutorService
@@ -79,6 +80,7 @@ class SearchMovieFragment : Fragment() {
         val fm = fragmentManager
         val editNameDialogFragment = AddMovieDialog()
         editNameDialogFragment.setTargetFragment(this@SearchMovieFragment, 300)
+
         editNameDialogFragment.show(fm!!, "fragment_edit_name")
 //        val builder = AlertDialog.Builder(requireContext())
 //        builder.setTitle("Add movie")

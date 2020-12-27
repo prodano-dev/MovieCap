@@ -10,11 +10,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.viewModels
 import com.example.moviecap.R
+import com.example.moviecap.model.SavedMovie
+import com.example.moviecap.viewModel.SelectedMovieViewModel
 import kotlinx.android.synthetic.main.fragment_add_movie.*
 
 
 class AddMovieDialog: DialogFragment() {
+
+    private val saveViewModel: SelectedMovieViewModel by viewModels()
 
     private val PERMISSION_CODE = 1000;
     private val IMAGE_CAPTURE_CODE = 1001
@@ -38,9 +43,34 @@ class AddMovieDialog: DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        testButton.setOnClickListener {
+        saveButton.setOnClickListener {
+            saveMovie()
+        }
+
+        cancelButton.setOnClickListener {
+            dismiss()
+        }
+
+        movieImageView.setOnClickListener {
             openCamera()
         }
+    }
+
+    private fun saveMovie() {
+        val movie = SavedMovie(
+                title = movieNameET.text.toString(),
+                backdrop_path = "",
+                overview = "Not available",
+                poster_path = image_uri.toString(),
+                vote_average = 0.0,
+                movieId = 0,
+                seen = true,
+                ratings = ratingBar.rating.toDouble(),
+                review = movieAboutET.text.toString()
+        )
+
+        saveViewModel.addMovieToList(movie)
+        dismiss()
     }
 
     private fun openCamera() {

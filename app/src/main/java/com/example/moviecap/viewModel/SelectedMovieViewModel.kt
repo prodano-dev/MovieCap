@@ -51,7 +51,7 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
         }
     }
 
-    fun changeiests(rate: Double) {
+    fun changeRatings(rate: Double) {
         for (movie in savedMoviesArray) {
             if (movie.movieId == selectedMovie!!.movieId) {
                  movie.ratings = rate
@@ -59,7 +59,7 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
         }
     }
 
-    fun remall(){
+    fun removeAllMovies(){
         viewModelScope.launch {
             try {
                 savedMovieRepository.deleteAll()
