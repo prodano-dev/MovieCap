@@ -2,6 +2,7 @@ package com.example.moviecap.api
 
 import com.example.moviecap.model.ApiResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieDBApiService {
@@ -17,5 +18,8 @@ interface MovieDBApiService {
 
     @GET("/3/search/movie?api_key=e952a2ed50e8f0a42cda74061fc1d4a2&language=en-US&query=harry&page=1&include_adult=false")
     suspend fun getMoviesWithQuery(@Query("query") query: String): ApiResponse.Result
+
+    @GET("3/movie/{movie_id}/videos?api_key=e952a2ed50e8f0a42cda74061fc1d4a2&language=en-US")
+    suspend fun getTrailerOfMovie(@Path("movie_id") movie_id: Int) : ApiResponse.TrailerResult
 
 }

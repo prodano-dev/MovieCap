@@ -33,8 +33,7 @@
     <fragment
         android:id="@+id/selectedMovie"
         android:name="com.example.moviecap.ui.home.SelectedMovie"
-        android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" >
+        tools:layout="@layout/fragment_movie">
         <action
             android:id="@+id/action_selectedMovie_to_navigation_home2"
             app:destination="@id/navigation_home" />
