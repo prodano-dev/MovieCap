@@ -55,11 +55,11 @@ class SearchMovieFragment : Fragment() {
                 return false
             }
 
-            override fun onQueryTextSubmit(p0: String?): Boolean {
-                TODO("Not yet implemented")
+            override fun onQueryTextSubmit(text: String?): Boolean {
+                viewModel.searchMovies(text.toString())
+                return true
             }
         })
-
 
         initView()
         observeMovies()
