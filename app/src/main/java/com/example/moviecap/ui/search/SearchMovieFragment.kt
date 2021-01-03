@@ -1,6 +1,5 @@
 package com.example.moviecap.ui.search
 
-import android.Manifest
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,25 +18,19 @@ import com.example.moviecap.R
 import com.example.moviecap.model.MovieDB
 import com.example.moviecap.ui.AddMovieDialog
 import com.example.moviecap.ui.home.BUNDLE_MOVIE_KEY
-import com.example.moviecap.ui.home.MovieAdapter
+import com.example.moviecap.ui.adapters.MovieAdapter
+import com.example.moviecap.ui.adapters.SearchedMovieAdapater
 import com.example.moviecap.ui.home.REQ_MOVIE_KEY
 import com.example.moviecap.viewModel.MoveDBViewModel
-import kotlinx.android.synthetic.main.fragment_add_movie.*
 import kotlinx.android.synthetic.main.fragment_search_movie.*
 import java.io.File
 import java.util.concurrent.ExecutorService
 
 class SearchMovieFragment : Fragment() {
 
-
     private val viewModel: MoveDBViewModel by activityViewModels()
     private val searchedMovies = arrayListOf<MovieDB>()
-    private val searchedMoviesAdapter = MovieAdapter(searchedMovies) { onMovieClick(it)}
-
-    private var imageCapture: ImageCapture? = null
-    private lateinit var outPutDirectory: File
-    private lateinit var cameraExecutor: ExecutorService
-
+    private val searchedMoviesAdapter = SearchedMovieAdapater(searchedMovies) { onMovieClick(it) }
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -82,21 +75,6 @@ class SearchMovieFragment : Fragment() {
         editNameDialogFragment.setTargetFragment(this@SearchMovieFragment, 300)
 
         editNameDialogFragment.show(fm!!, "fragment_edit_name")
-//        val builder = AlertDialog.Builder(requireContext())
-//        builder.setTitle("Add movie")
-//        imageCapture = ImageCapture.Builder().build()
-//
-//        val dialogLayout = layoutInflater.inflate(R.layout.fragment_add_movie, null)
-//        builder.setView(dialogLayout)
-//        builder.setPositiveButton("ADD") { _: DialogInterface, _: Int ->
-//
-//
-//        }
-//        builder.setNegativeButton("CANCEL") {dialogInterface, which ->
-//            Toast.makeText(context, "NEE", Toast.LENGTH_LONG).show()
-//        }
-//        builder.show()
-
     }
 
     private fun onMovieClick(movie: MovieDB) {
@@ -115,12 +93,5 @@ class SearchMovieFragment : Fragment() {
             searchedMovies.addAll(it)
             searchedMoviesAdapter.notifyDataSetChanged()
         })
-    }
-
-    companion object {
-        private const val TAG = "CameraXBasic"
-        private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
-        private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
 }

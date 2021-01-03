@@ -111,9 +111,7 @@ class SelectedMovie : Fragment() {
                 override fun onExtractionComplete(sparseArray: SparseArray<YtFile?>?, videoMeta: VideoMeta?) {
                     if (sparseArray != null) {
                         var mediaItem = MediaItem.fromUri(Uri.parse(sparseArray.get(18)!!.url.toString()))
-                        Log.e("link", mediaItem.toString())
                         simpleExoPlayer.addMediaItem(mediaItem)
-
                     }
                 }
             }
