@@ -1,4 +1,4 @@
-package com.example.moviecap.ui.home
+package com.example.moviecap.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -26,7 +26,7 @@ class MovieAdapter(private val movies: List<MovieDB>, private val onMovieClick: 
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
 
         return ViewHolder(

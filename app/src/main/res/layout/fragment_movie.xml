@@ -126,14 +126,17 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"/>
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:layout_height="300dp"
+                android:layout_width="match_parent"
+                android:id="@+id/trailerView"
+                app:resize_mode="fit"
+                android:keepScreenOn="true"
 
-            <Button
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:text="Watch trailer"
-                ></Button>
+                >
+            </com.google.android.exoplayer2.ui.PlayerView>
+
+
         </LinearLayout>
 
     </ScrollView>

@@ -30,7 +30,6 @@ data class SavedMovie(
         @ColumnInfo(name = "seen")
         var seen: Boolean = false,
 
-
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Long? = null

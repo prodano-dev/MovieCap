@@ -16,6 +16,9 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
     private val savedMovieRepository = SavedMovieRepository(application.applicationContext)
     val savedMovies: LiveData<List<SavedMovie>> = savedMovieRepository.getAllSavedMovies()
     var savedMoviesArray: ArrayList<SavedMovie> = arrayListOf()
+    val ratedMovies = savedMovieRepository.getRatedMovies()
+    val watchList = savedMovieRepository.getWatchList()
+    val myOwnMovies = savedMovieRepository.getOwnMovies()
     var selectedMovie: SavedMovie? = null
 
     fun addMovieToList(movie: SavedMovie) {

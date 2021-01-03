@@ -9,6 +9,11 @@ class ApiResponse() {
     data class Result (
         @SerializedName("results") val results : List<MovieDB>
     )
+
+    data class TrailerResult (
+            @SerializedName("id") val id : Int,
+            @SerializedName("results") val results : List<MovieTrailer>
+    )
 }
 
 @Parcelize
@@ -27,4 +32,15 @@ data class MovieDB (
 ) : Parcelable {
     fun getPosterPath() = "https://image.tmdb.org/t/p/original/$poster_path"
     fun getBackdropPath() = "https://image.tmdb.org/t/p/original/$backdrop_path"
+}
+
+@Parcelize
+data class MovieTrailer (
+
+        @SerializedName("key") var key: String,
+        @SerializedName("name") var name: String,
+        @SerializedName("site") var site: String,
+        @SerializedName("size") var size: Int
+) : Parcelable {
+    fun getYoutubeUrlLink() = "https://www.youtube.com/watch?v=$key"
 }

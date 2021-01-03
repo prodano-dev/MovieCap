@@ -6,6 +6,7 @@ import com.example.moviecap.api.MovieDBApi
 import com.example.moviecap.api.MovieDBApiService
 import com.example.moviecap.model.ApiResponse
 import com.example.moviecap.model.MovieDB
+import com.example.moviecap.model.MovieTrailer
 import kotlinx.coroutines.withTimeout
 
 class MovieDBRepository {
@@ -27,6 +28,10 @@ class MovieDBRepository {
     private val _searchedMovies: MutableLiveData<List<MovieDB>> = MutableLiveData()
     val searchedMovies: LiveData<List<MovieDB>>
         get() = _searchedMovies
+
+    private val _movieTrailers: MutableLiveData<List<MovieTrailer>> = MutableLiveData()
+    val movieTrailers: LiveData<List<MovieTrailer>>
+        get() = _movieTrailers
 
     suspend fun getUpcomingMovies() {
 
@@ -78,6 +83,19 @@ class MovieDBRepository {
             }
 
             _searchedMovies.value = result.results
+        } catch (error: Throwable) {
+            throw MovieFetchError("Couldnt find the movie you looking for", error)
+        }
+    }
+
+    suspend fun getTrailerOfMovies(movie_id: Int) {
+
+        try {
+            val result: ApiResponse.TrailerResult = withTimeout(5000) {
+               movieDBApiService.getTrailerOfMovie(movie_id)
+            }
+
+            _movieTrailers.value = result.results
         } catch (error: Throwable) {
             throw MovieFetchError("Couldnt find the movie you looking for", error)
         }

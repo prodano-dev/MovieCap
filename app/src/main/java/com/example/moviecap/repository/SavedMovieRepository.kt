@@ -6,7 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import com.example.moviecap.dao.MovieDao
 import com.example.moviecap.database.SavedMovieRoomDatabase
 import com.example.moviecap.model.MovieDB
+import com.example.moviecap.model.MovieTrailer
 import com.example.moviecap.model.SavedMovie
+import kotlinx.coroutines.withTimeout
 
 class SavedMovieRepository(context: Context) {
 
@@ -21,6 +23,18 @@ class SavedMovieRepository(context: Context) {
         movieDao = savedMovieRoomDatabase!!.movieDao()
     }
 
+    fun getRatedMovies(): LiveData<List<SavedMovie>> {
+        return movieDao.getRatedMovies() ?: MutableLiveData(emptyList())
+    }
+
+    fun getWatchList() : LiveData<List<SavedMovie>> {
+        return movieDao.getWatchList() ?: MutableLiveData(emptyList())
+    }
+
+    fun getOwnMovies() : LiveData<List<SavedMovie>> {
+        return movieDao.getOwnMovies() ?: MutableLiveData(emptyList())
+    }
+
     fun getAllSavedMovies(): LiveData<List<SavedMovie>> {
         return movieDao.getAllSavedMovies() ?: MutableLiveData(emptyList())
     }
@@ -29,7 +43,7 @@ class SavedMovieRepository(context: Context) {
         movieDao.addMovieToList(movie)
     }
 
-    suspend fun updateMovie(movie: SavedMovie) {
+    fun updateMovie(movie: SavedMovie) {
         movieDao.updateMovie(movie)
     }
 

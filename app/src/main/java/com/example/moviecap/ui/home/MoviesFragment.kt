@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviecap.model.MovieDB
 import com.example.moviecap.R
+import com.example.moviecap.ui.adapters.MovieAdapter
 import com.example.moviecap.viewModel.MoveDBViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -22,11 +23,11 @@ const val REQ_MOVIE_KEY = "req_movie_key"
 class MoviesFragment : Fragment() {
 
     private val upcomingMovies = arrayListOf<MovieDB>()
-    private val upcomingMoviesAdapter = MovieAdapter(upcomingMovies) { onMovieClick(it)}
+    private val upcomingMoviesAdapter = MovieAdapter(upcomingMovies) { onMovieClick(it) }
     private val topRatedMovies = arrayListOf<MovieDB>()
-    private val topRatedMoviesAdapter = MovieAdapter(topRatedMovies) { onMovieClick(it)}
+    private val topRatedMoviesAdapter = MovieAdapter(topRatedMovies) { onMovieClick(it) }
     private val nowPlayingMovies = arrayListOf<MovieDB>()
-    private val nowPlayingMoviesAdapter = MovieAdapter(nowPlayingMovies) { onMovieClick(it)}
+    private val nowPlayingMoviesAdapter = MovieAdapter(nowPlayingMovies) { onMovieClick(it) }
     private val viewModel: MoveDBViewModel by viewModels()
 
     override fun onCreateView(

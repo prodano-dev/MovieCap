@@ -14,6 +14,7 @@ class MoveDBViewModel(application: Application): AndroidViewModel(application) {
     val topRatedMovies = movieDBRepository.topRatedMovies
     val nowPlayingMovies = movieDBRepository.nowPlayingMovies
     val searchedMovies = movieDBRepository.searchedMovies
+    val movieTrailers = movieDBRepository.movieTrailers
 
     fun getNowPlayingMovies() {
         viewModelScope.launch {
@@ -51,6 +52,16 @@ class MoveDBViewModel(application: Application): AndroidViewModel(application) {
                 movieDBRepository.searchMoviesWithQuery(query)
             } catch (error: MovieDBRepository.MovieFetchError) {
                 Log.e("something went wrong..", error.cause.toString())
+            }
+        }
+    }
+
+    fun getMovieTrailer(movie_id: Int) {
+        viewModelScope.launch {
+            try {
+                movieDBRepository.getTrailerOfMovies(movie_id)
+            } catch (error: MovieDBRepository.MovieFetchError) {
+                Log.e("Trailer", error.cause.toString())
             }
         }
     }

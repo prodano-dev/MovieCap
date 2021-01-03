@@ -20,8 +20,6 @@ import kotlinx.android.synthetic.main.fragment_add_movie.*
 class AddMovieDialog: DialogFragment() {
 
     private val saveViewModel: SelectedMovieViewModel by viewModels()
-
-    private val PERMISSION_CODE = 1000;
     private val IMAGE_CAPTURE_CODE = 1001
     var image_uri: Uri? = null
 
@@ -36,7 +34,6 @@ class AddMovieDialog: DialogFragment() {
     override fun onStart() {
         super.onStart()
         val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
-        val height = (resources.displayMetrics.heightPixels * 0.40).toInt()
         dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
