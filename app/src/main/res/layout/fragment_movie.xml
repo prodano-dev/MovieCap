@@ -57,12 +57,15 @@
                             android:layout_marginTop="250dp"
                             android:orientation="vertical"
                             >
+
                             <Button
                                 android:id="@+id/rateButton"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="36dp"
                                 android:layout_marginStart="20dp"
-                                android:text="Rate">
+                                android:backgroundTint="#1A4FF7"
+                                android:text="Rate"
+                                android:textColor="#FFFFFF">
 
                             </Button>
 
@@ -71,7 +74,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20dp"
-                                android:text="Add to watchlist">
+                                android:backgroundTint="#AF3A30"
+                                android:text="Add to watchlist"
+                                android:textColor="#FFFFFF">
 
                             </Button>
                         </LinearLayout>
@@ -87,7 +92,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
                         android:text="moviename"
-                        android:textColor="#000000"
                         android:textSize="24dp"
                         android:textStyle="bold">
 

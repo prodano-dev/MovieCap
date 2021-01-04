@@ -30,7 +30,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:text="My Movies"
-                    android:textColor="#000000"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -50,7 +49,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:text="Watchlist"
-                    android:textColor="#000000"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -72,7 +70,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:text="Seen &amp; rated"
-                    android:textColor="#000000"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 

@@ -15,16 +15,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-<!--        <androidx.camera.view.PreviewView-->
-<!--            android:id="@+id/viewFinder"-->
-<!--            android:layout_width="200dp"-->
-<!--            android:layout_height="200dp" />-->
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Movie cover"
-            android:textColor="#000000"
             android:textSize="18sp"></TextView>
 
             <ImageView
@@ -39,7 +33,6 @@
             android:layout_marginTop="5dp"
             android:text="Stars"
             android:id="@+id/movieNameTextview"
-            android:textColor="#000000"
             android:textSize="18sp"></TextView>
 
         <RatingBar
@@ -53,7 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Movie name"
-            android:textColor="#000000"
             android:textSize="18sp"></TextView>
 
         <EditText
@@ -66,7 +58,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Small about"
-            android:textColor="#000000"
             android:textSize="14sp"></TextView>
 
         <EditText
