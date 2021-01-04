@@ -228,9 +228,10 @@ class SelectedMovie : Fragment() {
 
     private fun setElements(movie: MovieDB) {
 
+
         var selectedMovie = SavedMovie(
             title = movie.title,
-            backdrop_path = movie.backdrop_path,
+            backdrop_path = if (movie.backdrop_path != null) movie.backdrop_path!! else "",
             overview = movie.overview,
             poster_path = movie.poster_path,
             vote_average = movie.vote_average,
@@ -242,7 +243,9 @@ class SelectedMovie : Fragment() {
         tvMovieTitle.text = movie.title
         tvReleaseDate.text = movie.release_date
         tvMovieOverview.text = movie.overview
-        context?.let { Glide.with(it).load(movie.getBackdropPath()).into(ivMovieBack) }
+        if (!movie.backdrop_path.isNullOrEmpty()) {
+            context?.let { Glide.with(it).load(movie.getBackdropPath()).into(ivMovieBack) }
+        }
         context?.let { Glide.with(it).load(movie.getPosterPath()).into(ivMoviePoster) }
     }
 }

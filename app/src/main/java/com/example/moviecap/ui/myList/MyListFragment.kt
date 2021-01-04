@@ -61,7 +61,15 @@ class MyListFragment : Fragment() {
     }
 
     private fun onMovieClick(movie: SavedMovie) {
-        setFragmentResult(REQ_MOVIE_KEY, bundleOf(Pair(BUNDLE_MOVIE_KEY, movie)))
+        var movieDB = MovieDB(title = movie.title,
+                backdrop_path = movie.backdrop_path,
+                overview = movie.overview,
+                poster_path = movie.poster_path,
+                vote_average = movie.vote_average,
+                id = movie.movieId,
+                release_date = "N.A"
+        )
+        setFragmentResult(REQ_MOVIE_KEY, bundleOf(Pair(BUNDLE_MOVIE_KEY, movieDB)))
         findNavController().navigate(R.id.action_navigation_notifications_to_selectedMovie)
     }
 

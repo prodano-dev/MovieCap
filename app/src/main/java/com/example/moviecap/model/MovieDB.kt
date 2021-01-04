@@ -20,7 +20,7 @@ class ApiResponse() {
 data class MovieDB (
 
     @SerializedName("title") var title: String,
-    @SerializedName("backdrop_path") var backdrop_path: String,
+    @SerializedName("backdrop_path") var backdrop_path: String? = null,
     @SerializedName("overview") var overview: String,
     @SerializedName("poster_path") var poster_path: String,
     @SerializedName("vote_average") var vote_average: Double,

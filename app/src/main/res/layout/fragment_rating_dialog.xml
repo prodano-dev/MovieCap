@@ -16,7 +16,6 @@
             android:text="Stars"
             android:id="@+id/movieNameTextview"
             android:textAlignment="center"
-            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"></TextView>
 
@@ -34,7 +33,6 @@
             android:layout_marginTop="5dp"
             android:text="Thoughts about the movie"
             android:textAlignment="center"
-            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"></TextView>
 
