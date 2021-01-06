@@ -15,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.RatingBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -74,6 +75,7 @@ class SelectedMovie : Fragment() {
         }
 
         observeFragmentResult()
+        observeSuccess()
         observeMovies()
         playerView = trailerView
     }
@@ -216,6 +218,13 @@ class SelectedMovie : Fragment() {
             extractYoutubeUrl()
         })
 
+    }
+
+    private fun observeSuccess() {
+        saveViewModel.feedBackString.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
+
+        })
     }
 
     private fun observeMovies() {

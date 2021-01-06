@@ -2,11 +2,7 @@ package com.example.moviecap.viewModel
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.moviecap.model.SavedMovie
 import com.example.moviecap.repository.SavedMovieRepository
 import kotlinx.coroutines.launch
@@ -20,13 +16,16 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
     val watchList = savedMovieRepository.getWatchList()
     val myOwnMovies = savedMovieRepository.getOwnMovies()
     var selectedMovie: SavedMovie? = null
+    val feedBackString = MutableLiveData<String>()
 
     fun addMovieToList(movie: SavedMovie) {
         viewModelScope.launch {
             try {
                 savedMovieRepository.addMovie(movie)
+                feedBackString.value = "Successfully added ${movie.title} to the list"
             } catch (error: SavedMovieRepository.SaveMovieFetchError) {
                 Log.e("add went wrong..", error.cause.toString())
+                feedBackString.value = error.cause.toString()
             }
         }
     }
@@ -66,6 +65,7 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
         viewModelScope.launch {
             try {
                 savedMovieRepository.deleteAll()
+
             } catch (error: SavedMovieRepository.SaveMovieFetchError) {
                 Log.e("Remove", error.cause.toString())
             }
@@ -76,8 +76,9 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
         viewModelScope.launch {
             try {
                 savedMovieRepository.updateMovie(movie)
+                feedBackString.value = "Successfully updated movie"
             } catch (error: SavedMovieRepository.SaveMovieFetchError) {
-                Log.e("Remove", error.cause.toString())
+                Log.e("update", error.cause.toString())
             }
         }
     }
@@ -86,8 +87,10 @@ class SelectedMovieViewModel(application: Application): AndroidViewModel(applica
         viewModelScope.launch {
             try {
                 savedMovieRepository.deleteMovie(movie)
+                feedBackString.value = "Successfully removed ${movie.title}"
             } catch (error: SavedMovieRepository.SaveMovieFetchError) {
                 Log.e("Remove", error.cause.toString())
+                feedBackString.value = error.cause.toString()
             }
         }
     }
