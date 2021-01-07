@@ -11,7 +11,7 @@ Over the themesemester I've learned things like:
  - MVVM
  - Retrofit
 
-For the project I've received a 7,5.
+For the project I've received a 7,5. All the other assignments can be find <a href="https://github.com/prodano-dev/MobileAndroidDevelopment"> here </a>
 
 # Screenshots
 <img src="https://user-images.githubusercontent.com/59166839/103939558-3d130680-512c-11eb-82d1-64eb53a3b790.png" width="300" /><img src="https://user-images.githubusercontent.com/59166839/103939601-51570380-512c-11eb-9f44-e94b282955b1.png" width="300" /><img src="https://user-images.githubusercontent.com/59166839/103940315-697b5280-512d-11eb-8699-b97690c979fa.png" width="300" />
