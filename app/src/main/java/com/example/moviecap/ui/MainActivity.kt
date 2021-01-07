@@ -1,16 +1,13 @@
-package com.example.moviecap
+package com.example.moviecap.ui
 
-import android.net.Uri
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.media2.exoplayer.external.upstream.DefaultHttpDataSourceFactory
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource
+import com.example.moviecap.R
 
 class MainActivity : AppCompatActivity() {
 

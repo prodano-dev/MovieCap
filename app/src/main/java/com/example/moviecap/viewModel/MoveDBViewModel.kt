@@ -21,7 +21,7 @@ class MoveDBViewModel(application: Application): AndroidViewModel(application) {
             try {
                 movieDBRepository.getNowPlayingMovies()
             } catch (error: MovieDBRepository.MovieFetchError) {
-                Log.e("lol", error.cause.toString())
+                Log.e("playingMovies", error.cause.toString())
             }
         }
     }
@@ -31,7 +31,7 @@ class MoveDBViewModel(application: Application): AndroidViewModel(application) {
             try {
                 movieDBRepository.getTopRatedMovies()
             } catch (error: MovieDBRepository.MovieFetchError) {
-                Log.e("lol", error.cause.toString())
+                Log.e("topRatedMovies", error.cause.toString())
             }
         }
     }
@@ -41,7 +41,7 @@ class MoveDBViewModel(application: Application): AndroidViewModel(application) {
             try {
                 movieDBRepository.getUpcomingMovies()
             } catch (error: MovieDBRepository.MovieFetchError) {
-                Log.e("lol", error.cause.toString())
+                Log.e("upcomingMovies", error.cause.toString())
             }
         }
     }
